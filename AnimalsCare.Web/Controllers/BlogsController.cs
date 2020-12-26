@@ -9,5 +9,10 @@ namespace AnimalsCare.Web.Controllers
             return this.View();
         }
 
+        public IActionResult Add()
+        {
+            return this.View();
+        }
+
     }
 }

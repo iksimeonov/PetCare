@@ -19,6 +19,8 @@ namespace AnimalsCare.Data
 
         public DbSet<Veterinarian> Veterinarians { get; set; }
 
+        public DbSet<Blog> Blogs { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
