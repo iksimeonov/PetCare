@@ -1,6 +1,8 @@
+using AnimalsCare.AutoMapper;
 using AnimalsCare.Data;
 using AnimalsCare.Models;
 using AnimalsCare.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -31,12 +33,19 @@ namespace AnimalsCare.Web
                 .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            
+
             services.AddTransient<ISeedingVeterinarians, SeedingVeterinarians>();
             services.AddTransient<IVeterinariansService, VeterinariansService>();
+            services.AddTransient<IBlogService, BlogService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<ICommentService, CommentService>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAutoMapper(typeof(AnimalsCareProfile).Assembly);
         }
 
 

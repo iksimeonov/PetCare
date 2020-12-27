@@ -21,8 +21,10 @@ namespace AnimalsCare.Data
 
         public DbSet<Blog> Blogs { get; set; }
 
+        public DbSet<Comment> Comment { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+       {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server=.;Database=AnimalsCare;Integrated Security=true;");

@@ -1,4 +1,5 @@
-﻿
+﻿@using AnimalsCare.ViewModels
+@model ContactAddViewModel
    
     <section class="hero-wrap hero-wrap-2" style="background-image: url('https://images.squarespace-cdn.com/content/v1/596e1217d2b8575f4b4dda73/1562969179745-I24D4KKAZ2OXEX5PR5LK/ke17ZwdGBToddI8pDm48kPipDBN8EsXn0GX4VYEjDvAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2di_anSEgls28Fx9rC-ls48EcpI-gmYcFCPdUS0knNFfOCjLISwBs8eEdxAxTptZAUg/Contact+us+Light+Green+BAnner.png');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -72,32 +73,37 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="firstName">First name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+														<label asp-for="FirstName">First name</label>
+														<input asp-for="FirstName" class="form-control" />
+														<span asp-validation-for="FirstName" class="text-danger"></span>
 													</div>
 												</div><div class="col-md-6">
 													<div class="form-group">
-														<label class="label" for="lastName">Last Name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+														<label asp-for="LastName">Last Name</label>
+														<input asp-for="LastName" class="form-control" />
+														<span asp-validation-for="LastName" class="text-danger"></span>
 													</div>
 												</div>
 												<div class="col-md-6"> 
 													<div class="form-group">
-														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+														<label asp-for="Email"></label>
+														<input asp-for="Email" class="form-control" />
+														<span asp-validation-for="Email" class="text-dange"></span>
 													</div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-													</div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Subject">Subject</label>
+                                                        <input asp-for="Subject" class="form-control" />
+                                                        <span asp-validation-for="Subject" class="text-dange"></span>
+                                                    </div>
 												</div>
 												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">Message</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-													</div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Message">Message</label>
+                                                        <textarea asp-for="Message" class="form-control" ></textarea>
+                                                        <span asp-validation-for="Message" class="text-dange"></span>
+                                                    </div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">

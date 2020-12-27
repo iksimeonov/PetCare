@@ -4,14 +4,16 @@ using AnimalsCare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnimalsCare.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227110343_AddBlogEntity")]
+    partial class AddBlogEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,33 +142,6 @@ namespace AnimalsCare.Data.Migrations
                     b.HasIndex("CreatorId");
 
                     b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("AnimalsCare.Models.Comment", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BlogId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("AnimalsCare.Models.Contact", b =>
@@ -331,27 +306,12 @@ namespace AnimalsCare.Data.Migrations
             modelBuilder.Entity("AnimalsCare.Models.Blog", b =>
                 {
                     b.HasOne("AnimalsCare.Models.ApplicationUser", "Creator")
-                        .WithMany("Blogs")
+                        .WithMany()
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Creator");
-                });
-
-            modelBuilder.Entity("AnimalsCare.Models.Comment", b =>
-                {
-                    b.HasOne("AnimalsCare.Models.Blog", "Blog")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogId");
-
-                    b.HasOne("AnimalsCare.Models.ApplicationUser", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Blog");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -403,18 +363,6 @@ namespace AnimalsCare.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("AnimalsCare.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Blogs");
-
-                    b.Navigation("Comments");
-                });
-
-            modelBuilder.Entity("AnimalsCare.Models.Blog", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

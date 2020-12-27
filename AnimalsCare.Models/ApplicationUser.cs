@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 
 namespace AnimalsCare.Models
 {
@@ -9,6 +10,10 @@ namespace AnimalsCare.Models
         public ApplicationUser()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Blogs = new HashSet<Blog>();
         }
+
+       public virtual ICollection<Blog> Blogs{ get; set; }
+        public virtual ICollection<Comment> Comments{ get; set; }
     }
 }

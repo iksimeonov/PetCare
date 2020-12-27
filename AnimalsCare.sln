@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalsCare.Models", "Anima
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalsCare.Services", "AnimalsCare.Services\AnimalsCare.Services.csproj", "{881C5827-D04A-4CED-8DF9-519F5A4B6D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalsCare.ViewModels", "AnimalsCare.ViewModels\AnimalsCare.ViewModels.csproj", "{73C78FB9-F151-4E86-9E94-E48D6852D55B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalsCare.ViewModels", "AnimalsCare.ViewModels\AnimalsCare.ViewModels.csproj", "{73C78FB9-F151-4E86-9E94-E48D6852D55B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalsCare.AutoMapper", "AnimalsCare.AutoMapper\AnimalsCare.AutoMapper.csproj", "{9A95ADFF-A27D-445C-B1DA-B7D29A695F95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{73C78FB9-F151-4E86-9E94-E48D6852D55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C78FB9-F151-4E86-9E94-E48D6852D55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C78FB9-F151-4E86-9E94-E48D6852D55B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A95ADFF-A27D-445C-B1DA-B7D29A695F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A95ADFF-A27D-445C-B1DA-B7D29A695F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A95ADFF-A27D-445C-B1DA-B7D29A695F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A95ADFF-A27D-445C-B1DA-B7D29A695F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

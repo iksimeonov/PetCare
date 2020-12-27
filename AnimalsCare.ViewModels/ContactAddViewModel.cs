@@ -1,15 +1,11 @@
-﻿using System;
+﻿
+
 using System.ComponentModel.DataAnnotations;
 
-namespace AnimalsCare.Models
+namespace AnimalsCare.ViewModels
 {
-    public   class Contact
+    public class ContactAddViewModel
     {
-        public Contact()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
-        public string Id { get; set; }
 
         [Required]
         [MinLength(2)]
