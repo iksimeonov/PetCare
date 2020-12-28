@@ -23,11 +23,15 @@ namespace AnimalsCare.Data
 
         public DbSet<Comment> Comment { get; set; }
 
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<Consultation> Consultations { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
        {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=AnimalsCare;Integrated Security=true;");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-HBTCL7L\SQLEXPRESS01;Database=AnimalsCare;Integrated Security=true;");
             }
         }
 

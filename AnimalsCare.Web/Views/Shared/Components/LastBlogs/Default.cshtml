@@ -1,0 +1,17 @@
+﻿@using AnimalsCare.ViewModels;
+@model IEnumerable<LastBlogsViewModels>
+
+<div class="sidebar-box ftco-animate">
+    @foreach (var blog in this.Model)
+    {
+<div class="block-21 mb-4 d-flex">
+    <a class="blog-img mr-4" style="background-image: url(@blog.ImageUrl);"></a>
+    <div class="text">
+        <h3 class="heading"><a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id">@blog.Title</a></h3>
+        <div class="meta">
+            <div><span class="icon-calendar"></span>@blog.CreatedOn</div>
+            <div><span class="icon-person"></span>@blog.CreatorUsername</div>
+        </div>
+    </div>
+</div>}
+</div>

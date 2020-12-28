@@ -12,8 +12,11 @@ namespace AnimalsCare.AutoMapper
             this.CreateMap<Blog, BlogsAllViewModel>();
             this.CreateMap<Blog, BlogDetailsViewModel>();
             this.CreateMap<Blog, BlogEditViewModel>();
+            this.CreateMap<Blog, LastBlogsViewModels>();
 
             this.CreateMap<ContactAddViewModel, Contact>();
+
+            this.CreateMap<ConsultationAddViewModel, Consultation>();
         }
     }
 }

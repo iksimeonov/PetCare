@@ -1,5 +1,6 @@
 ﻿using AnimalsCare.Services;
 using AnimalsCare.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -20,11 +21,13 @@ namespace AnimalsCare.Web.Controllers
             return this.View(allBlogs);
         }
 
+        [Authorize]
         public IActionResult Add()
         {
             return this.View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(BlogAddInputViewModel blogAddModel)
         {
@@ -39,12 +42,14 @@ namespace AnimalsCare.Web.Controllers
             return this.Redirect("/Blogs/All");
         }
 
-       public async Task<IActionResult> Details(string id)
+        [Authorize]
+        public async Task<IActionResult> Details(string id)
         {
             var blog = await this.blogService.GetBlogById(id);
             return this.View(blog);
         }
 
+        [Authorize]
         public async Task<IActionResult> MyBlog()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;

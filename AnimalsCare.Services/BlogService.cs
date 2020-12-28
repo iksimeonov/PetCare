@@ -77,6 +77,13 @@ namespace AnimalsCare.Services
             return  this.mapper.Map<BlogEditViewModel>(this.db.Blogs.FirstOrDefault(x => x.Id == id));
         }
 
+        public  IEnumerable<LastBlogsViewModels> GetLastBlogs()
+        {
+            return this.db.Blogs.ProjectTo<LastBlogsViewModels>(this.mapper.ConfigurationProvider)
+                                 .ToList()
+                                 .TakeLast(3);
+        }
+
         public async Task<IEnumerable<BlogsAllViewModel>> GetUserBlogs(string userId)
         {
             return  this.db.Blogs.Where(x=>x.CreatorId==userId).ProjectTo<BlogsAllViewModel>(this.mapper.ConfigurationProvider)

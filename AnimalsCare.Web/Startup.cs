@@ -40,6 +40,9 @@ namespace AnimalsCare.Web
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<ICommentService, CommentService>();
+            services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IConsultationService, ConsultationService>();
+            services.AddTransient<IUsersService, UsersService>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();

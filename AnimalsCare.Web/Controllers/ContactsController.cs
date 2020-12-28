@@ -27,6 +27,7 @@ namespace AnimalsCare.Web.Controllers
                 return this.View(commentInput);
             }
             await this.commentService.AddCommentAsync(commentInput);
+            this.TempData["Success"] = "True";
             return this.Redirect("/Contacts/Contact");
         }
     }

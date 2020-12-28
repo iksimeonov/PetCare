@@ -11,9 +11,11 @@ namespace AnimalsCare.Models
         {
             this.Id = Guid.NewGuid().ToString();
             this.Blogs = new HashSet<Blog>();
+            this.Payments = new HashSet<Payment>();
         }
 
        public virtual ICollection<Blog> Blogs{ get; set; }
         public virtual ICollection<Comment> Comments{ get; set; }
+        public virtual ICollection<Payment> Payments{ get; set; }
     }
 }

@@ -169,6 +169,39 @@ namespace AnimalsCare.Data.Migrations
                     b.ToTable("Comment");
                 });
 
+            modelBuilder.Entity("AnimalsCare.Models.Consultation", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Service")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Consultations");
+                });
+
             modelBuilder.Entity("AnimalsCare.Models.Contact", b =>
                 {
                     b.Property<string>("Id")
@@ -197,6 +230,30 @@ namespace AnimalsCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("AnimalsCare.Models.Payment", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("AnimalsCare.Models.Veterinarian", b =>
@@ -275,10 +332,12 @@ namespace AnimalsCare.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -315,10 +374,12 @@ namespace AnimalsCare.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -350,6 +411,15 @@ namespace AnimalsCare.Data.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("Blog");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AnimalsCare.Models.Payment", b =>
+                {
+                    b.HasOne("AnimalsCare.Models.ApplicationUser", "User")
+                        .WithMany("Payments")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -410,6 +480,8 @@ namespace AnimalsCare.Data.Migrations
                     b.Navigation("Blogs");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("AnimalsCare.Models.Blog", b =>

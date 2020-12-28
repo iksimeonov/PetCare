@@ -10,6 +10,7 @@ namespace AnimalsCare.Services
         Task<IEnumerable<BlogsAllViewModel>> GetAll();
         Task<BlogDetailsViewModel> GetBlogById(string id);
         Task<IEnumerable<BlogsAllViewModel>> GetUserBlogs(string userId);
+        IEnumerable<LastBlogsViewModels> GetLastBlogs();
         Task EditChanges(BlogEditViewModel blogEditViewModel);
         Task<BlogEditViewModel> GetEditModel(string id);
         Task DeleteBlogById(string id, string userId);

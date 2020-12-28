@@ -13,6 +13,7 @@ namespace AnimalsCare.ViewModels
         [MinLength(20)]
         public string Description { get; set; }
 
+        [Display(Name = "Date")]
         public DateTime CreatedOn{ get; set; }
     
         [Required]

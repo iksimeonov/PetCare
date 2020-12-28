@@ -1,0 +1,70 @@
+﻿@model AnimalsCare.ViewModels.UserPaymentViewModel
+
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <form asp-action="Payment">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <select class="form-control" name="package">
+                        <option value="19">Personal - 19$</option>
+                        <option value="39">Business - 39$</option>
+                        <option value="59">Ultimate - 59$</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <strong>Card Info:</strong>
+                <div class="form-group">
+                    <label asp-for="CardholderNames" class="control-label"></label>
+                    <input asp-for="CardholderNames" class="form-control" />
+                    <span asp-validation-for="CardholderNames" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardNumber" class="control-label"></label>
+                    <input asp-for="CardNumber" class="form-control" />
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExpirationDate" class="control-label"></label>
+                    <input asp-for="ExpirationDate" class="form-control" />
+                    <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cvv" class="control-label"></label>
+                    <input asp-for="Cvv" class="form-control" />
+                    <span asp-validation-for="Cvv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Done" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
